@@ -1,0 +1,202 @@
+@font-face {
+    font-family: "plain light";
+    src: url(./plain-light-webfont.ttf);
+}
+@font-face {
+    font-family: "silk serif";
+    src: url(./silkserif-regularitalic-webfont.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "plain light";
+    color: #fff;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#cursor{
+    height: 2vw;
+    width: 2vw;
+    background-color: transparent;
+    position: absolute;
+    z-index: 99;
+    border-radius: 50%;
+    border: 2px solid #ffffff9d;
+    transform: translate(-50%,-50%);
+}
+#loader{
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 99;
+    background-color: #000000;
+    padding: 25vh 10vw;
+    overflow: hidden;
+}
+#loader .line{
+    /* background-color: red; */
+    height: fit-content;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3vw;
+}
+.line #numbers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+.line #numbers h5,h6{
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+}
+.line #numbers h5{
+    /* background-color: red; */
+    width: 5vw;
+    text-align: right;
+}
+#loader .line h1{
+    font-size: 7vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 8vw;
+}
+
+/* now animation + properties */
+#loader .line h2{
+    /* background-color: red; */
+    font-size: 5.1vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 0;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes anime {
+    0% {
+        font-family: "plain light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 1;
+    }
+
+    48% {
+        font-family: "plain light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 0;
+    }
+
+    50% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 1px #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 1;
+    }
+
+    100% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 1px #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 0;
+    }
+}
+
+
+
+#main{
+    position: relative;
+    background-color: #000000;
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    background-color: #151515;
+    /* background-color: olivedrab; */
+}
+#page1 #nav{
+    height: 10vh;
+    /* background-color: red; */
+    padding: 3vw 3vw;
+}
+#nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#nav #part1{
+    /* background-color: yellow; */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    justify-content: space-between;
+}
+#nav #part2{
+    width: 13vw;
+    /* background-color: green; */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#nav #part2 h5{
+    font-weight: 100;
+    cursor: pointer;
+}
+.hero{
+    width: 73%;
+    margin-left: 27%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.hero h1{
+    /* background-color: red; */
+    font-size: 7.2vw;
+    line-height: 7.2vw;
+    font-weight: 600;
+}
+.hero h2{
+    /* background-color: red; */
+    font-size: 7.2vw;
+    line-height: 7.2vw;
+    font-weight: 600;
+}
+.hero h2:nth-child(1){
+    text-decoration: underline;
+}
+.hero h2:nth-child(3){
+    text-decoration: underline;
+}
+.hero h2:hover{
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 300;
+    text-decoration: none;
+}
+.hero:nth-child(2){
+    margin-top: 16vh;
+    position: relative;
+}
+.hero:nth-child(2)::before{
+    content: "01";
+    position: absolute;
+    left: -10%;
+    top: 3%;
+    font-size: 3vw;
+    font-family: "silk serif";
+}

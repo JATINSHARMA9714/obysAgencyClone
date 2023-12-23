@@ -160,7 +160,7 @@ html,body{
 .hero{
     width: 73%;
     margin-left: 27%;
-    overflow: hidden;
+    overflow:hidden;
     display: flex;
     align-items: center;
 }
@@ -175,12 +175,13 @@ html,body{
     font-size: 7.2vw;
     line-height: 7.2vw;
     font-weight: 600;
+    padding-bottom: 0.3vw;
 }
 .hero h2:nth-child(1){
-    text-decoration: underline;
+    border-bottom: 0.6vw solid #fff;
 }
 .hero h2:nth-child(3){
-    text-decoration: underline;
+    border-bottom: 0.6vw solid #fff;
 }
 .hero h2:hover{
     color: transparent;
@@ -195,6 +196,7 @@ html,body{
 .hero:nth-child(2)::before{
     content: "01";
     position: absolute;
+    z-index: 990;
     left: -10%;
     top: 3%;
     font-size: 3vw;

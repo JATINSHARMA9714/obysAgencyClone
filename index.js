@@ -62,7 +62,11 @@ tl.from("#nav",{
 tl.from("#hero1 h1,#hero2 h1,#hero3 h2 ,#hero4 h1",{
     y:100,
     stagger:0.15,
-    opacity:0
+    opacity:0,
+})
+
+tl.to(".hero",{
+    overflow:"visible"
 })
 
 }

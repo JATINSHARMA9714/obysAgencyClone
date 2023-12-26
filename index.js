@@ -1,5 +1,5 @@
 //locomotive
-function loco(){
+function locomotive(){
     gsap.registerPlugin(ScrollTrigger);
 
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
@@ -30,10 +30,6 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
 
 }
-
-loco();
-
-
 function loadingAnimation(){
     //loader animation
 var tl = gsap.timeline();
@@ -106,56 +102,115 @@ tl.to(".hero",{
 })
 
 }
-
-loadingAnimation();
-
-
 //cursor animation
-
 function cursorAnimation(){
-    Shery.mouseFollower({
-        skew: true,
-        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-        duration: 1,
-      });
+    // Shery.mouseFollower({
+    //     skew: true,
+    //     ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+    //     duration: 1,
+    //   });
     //magnet effect using sheryjs
 Shery.makeMagnet("#part2 h5,#part1 svg");
 }
-cursorAnimation();
-
-
 // about page animation
 function lineAnimation(){
-gsap.from("#page4-content h1",{
-    y:100,
-    opacity:0,
-    overflow:"hidden",
-    scrollTrigger:{
-        trigger:"#page4-content h1",
-        scroller:"#main",
-        // markers:true,
-        start:"top 80%"
-    }
-})
-
-gsap.from("#underline1",{
-    x:2000,
-    stagger:0.5,
-    scrollTrigger:{
-        trigger:"#underline1",
-        scroller:"#main",
-        // markers:true,
-        start:"top 80%"
-    }
-})
-gsap.from("#underline2",{
-    x:2000,
-    scrollTrigger:{
-        trigger:"#underline2",
-        scroller:"#main",
-        // markers:true,
-        start:"top 80%"
-    }
-})
+    gsap.from("#page4-content h1",{
+        y:100,
+        opacity:0,
+        overflow:"hidden",
+        scrollTrigger:{
+            trigger:"#page4-content h1",
+            scroller:"#main",
+            // markers:true,
+            start:"top 90%",
+            end:"top 40%",
+            scrub:true
+        }
+    })
+    
+    gsap.from("#underline1",{
+        x:2000,
+        stagger:0.5,
+        scrollTrigger:{
+            trigger:"#underline1",
+            scroller:"#main",
+            // markers:true,
+            start:"top 90%",
+            end:"top 40%",
+            scrub:true
+        }
+    })
+    gsap.from("#underline2",{
+        x:2000,
+        scrollTrigger:{
+            trigger:"#underline2",
+            scroller:"#main",
+            // markers:true,
+            start:"top 90%",
+            end:"top 40%",
+            scrub:true
+        }
+    })
 }
+//image wobble effect
+function sheryAnimation() {
+    Shery.imageEffect(".image-div", {
+      style: 5,
+      gooey: true,
+    //   debug:true,
+      config:{"a":{"value":2,"range":[0,30]},"b":{"value":-0.97,"range":[-1,1]},"zindex":{"value":-9996999,"range":[-9999999,9999999]},"aspect":{"value":0.8226458888580629},"ignoreShapeAspect":{"value":true},"shapePosition":{"value":{"x":0,"y":0}},"shapeScale":{"value":{"x":0.5,"y":0.5}},"shapeEdgeSoftness":{"value":0,"range":[0,0.5]},"shapeRadius":{"value":0,"range":[0,2]},"currentScroll":{"value":0},"scrollLerp":{"value":0.07},"gooey":{"value":true},"infiniteGooey":{"value":false},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":false},"maskVal":{"value":1,"range":[1,5]},"scrollType":{"value":0},"geoVertex":{"range":[1,64],"value":1},"noEffectGooey":{"value":true},"onMouse":{"value":0},"noise_speed":{"value":0.46,"range":[0,10]},"metaball":{"value":0.34,"range":[0,2]},"discard_threshold":{"value":0.5,"range":[0,1]},"antialias_threshold":{"value":0,"range":[0,0.1]},"noise_height":{"value":0.5,"range":[0,2]},"noise_scale":{"value":10,"range":[0,100]}}
+    });
+}
+function videoCursor(){
+    var video_container = document.querySelector("#video-container")
+    var video = document.querySelector("video")
+    var flag = 0
+    video_container.addEventListener("mouseenter",()=>{
+        video_container.addEventListener("mousemove",(dets)=>{
+            gsap.to("#video-cursor",{
+                x:dets.x - 1260,
+                y:dets.y - 150
+            })
+        })
+        video_container.addEventListener("click",function(){
+            if (flag == 0) {
+                video.play()
+                gsap.to("#video-container img",{
+                    display:"none"
+                })
+                video.style.opacity = 1
+                document.querySelector("#video-cursor").innerHTML = `<i class="ri-pause-mini-fill"></i>`
+                gsap.to("#video-cursor", {
+                  scale: 0.5
+                })
+                flag = 1
+              } else {
+                video.pause()
+                gsap.to("#video-container img",{
+                    display:"initial"
+                })
+                video.style.opacity = 0
+                document.querySelector("#video-cursor").innerHTML = `<i class="ri-play-mini-fill"></i>`
+                gsap.to("#video-cursor", {
+                  scale: 1
+                })
+                flag = 0
+              }
+            })
+        })
+    video_container.addEventListener("mouseleave",()=>{
+        gsap.to("#video-cursor",{
+            y: "-12%",
+            x: "70%"
+        })
+    })
+}
+
+
+
+locomotive();
+// loadingAnimation();
+cursorAnimation();
 lineAnimation();
+sheryAnimation();
+videoCursor();

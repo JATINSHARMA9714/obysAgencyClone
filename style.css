@@ -24,7 +24,7 @@ html,body{
     mix-blend-mode: difference;
 }
 #loader{
-    display: none;
+    /* display: none; */
     height: 100%;
     width: 100%;
     position: absolute;
@@ -121,6 +121,7 @@ html,body{
     height: 100vh;
     width: 100%;
     background-color: #151515;
+    position: relative;
     /* background-color: olivedrab; */
 }
 #page1 #nav{
@@ -181,6 +182,7 @@ html,body{
     color: transparent;
     -webkit-text-stroke: 1px #fff;
     font-weight: 300;
+    transition: all ease 0.5s;
     border-bottom: 0.6vw solid #ffffff00;
 }
 .hero:nth-child(2){
@@ -195,6 +197,21 @@ html,body{
     font-weight: 200;
     margin-left: -8%;
     margin-top: 1%;
+}
+#hero3{
+    /* background-color: red; */
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+}
+#flag{
+    height: 25vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    z-index: 0;
 }
 #page2{
     height: 100vh;
@@ -280,14 +297,14 @@ html,body{
 }
 #content-box-1{
     width: 23vw;
-    height: 35vw;
+    height: 40vw;
     position: relative;
     /* background-color: palegoldenrod; */
     border-bottom: 1.5px solid white;
 }
 #content-box-1 .image-div{
     width: 100%;
-    height: 80%;
+    height: 75%;
     /* background-color: orange; */
     position: relative;
     overflow: hidden;
@@ -301,12 +318,12 @@ html,body{
 }
 .content-box-2{
     width: 33vw;
-    height: 50vw;
+    height: 55vw;
     border-bottom: 1.5px solid white;
 }
 .content-box-2 .image-div{
     width: 100%;
-    height: 90%;
+    height: 84%;
     /* background-color: orange; */
     position: relative;
     overflow: hidden;
@@ -366,7 +383,34 @@ html,body{
     margin-top: 10%;
 }
 
+.content-text{
+    position: relative;
+    /* background-color: red; */
+    overflow: hidden;
+    /* width: fit-content; */
+    height: 2.5vw;
+    margin-bottom: 2vw;
 
+}
+.content-text h2{
+    position: relative;
+    top: 0%;
+    transition: top ease 0.5s;
+    font-size: 2vw;
+}
+.content-text:hover h2{
+    top: -100%;
+}
+.inner-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8vw 0vw;
+    font-size: 0.8vw;
+}
+.inner-text h4:nth-child(1){
+    width: 50%;
+}
 
 
 
@@ -534,6 +578,9 @@ html,body{
     /* background-color: red; */
     margin-left: 27%;
 }
+#animateh1{
+    position: relative;
+}
 #content h1{
     font-size: 7vw;
     font-weight: 900;
@@ -549,10 +596,18 @@ html,body{
     font-size: 3vw;
     font-weight: 200;
     position: absolute;
-    margin-left: -8%;
+    margin-left: -15%;
     margin-top: 1%;
 }
-
+#content h2::before{
+    content: "04";
+    font-family: "silk serif";
+    font-size: 3vw;
+    font-weight: 200;
+    position: absolute;
+    margin-left: -9.2%;
+    margin-top: 1.8%;
+}
 #content h1 i{
     color: transparent;
     -webkit-text-stroke:1px #fff;
@@ -594,10 +649,90 @@ html,body{
     margin-top: 5%;
     font-size: 1.5vw;
 }
+.animatebox{
+    /* background-color: red; */
+    height: 2.1vw;
+    overflow: hidden;
+}
+.animatebox a{
+    /* background-color: orange; */
+    position: relative;
+    top: 0%;
+    transition: top ease 0.5s;
+}
+.animatebox:hover a{
+ top: -96%;
+}
+.animatebox h3{
+    /* background-color: orange; */
+    position: relative;
+    width: fit-content;
+    top: 20%;
+    transition: top ease 0.5s;
+}
+.animatebox:hover h3{
+ top: -60%;
+}
+
+
+
 .box h3{
     font-size: 1.5vw;
     font-weight: 200;
 }
+#footer-text {
+    position: relative;
+    /* background-color: red; */
+}
+#footer-text h1{
+    position: absolute;
+    top: -10%;
+    /* background-color: transparent; */
+}
+#footer-text h2 {
+    text-transform: uppercase;
+    font-size: 6.7vw;
+    /* position: absolute;
+    top: -10%; */
+    font-weight: 500;
+    opacity: 1;
+    left: 0;
+    font-family: "silk serif";
+}
+#footer-text h2 span {
+    font-family: "silk serif";
+    opacity: 0;
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ._canvas_container {
     z-index: 999999 !important;

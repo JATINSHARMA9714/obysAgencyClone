@@ -30,6 +30,8 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
 
 }
+
+//loading animation
 function loadingAnimation(){
     //loader animation
 var tl = gsap.timeline();
@@ -104,13 +106,11 @@ tl.to(".hero",{
 }
 //cursor animation
 function cursorAnimation(){
-    // Shery.mouseFollower({
-    //     skew: true,
-    //     ease: "cubic-bezier(0.23, 1, 0.320, 1)",
-    //     duration: 1,
-    //   });
-    //magnet effect using sheryjs
-Shery.makeMagnet("#part2 h5,#part1 svg");
+    Shery.mouseFollower({
+        skew: true,
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        duration: 1,
+      });
 }
 // about page animation
 function lineAnimation(){
@@ -160,7 +160,10 @@ function sheryAnimation() {
     //   debug:true,
       config:{"a":{"value":2,"range":[0,30]},"b":{"value":-0.97,"range":[-1,1]},"zindex":{"value":-9996999,"range":[-9999999,9999999]},"aspect":{"value":0.8226458888580629},"ignoreShapeAspect":{"value":true},"shapePosition":{"value":{"x":0,"y":0}},"shapeScale":{"value":{"x":0.5,"y":0.5}},"shapeEdgeSoftness":{"value":0,"range":[0,0.5]},"shapeRadius":{"value":0,"range":[0,2]},"currentScroll":{"value":0},"scrollLerp":{"value":0.07},"gooey":{"value":true},"infiniteGooey":{"value":false},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":false},"maskVal":{"value":1,"range":[1,5]},"scrollType":{"value":0},"geoVertex":{"range":[1,64],"value":1},"noEffectGooey":{"value":true},"onMouse":{"value":0},"noise_speed":{"value":0.46,"range":[0,10]},"metaball":{"value":0.34,"range":[0,2]},"discard_threshold":{"value":0.5,"range":[0,1]},"antialias_threshold":{"value":0,"range":[0,0.1]},"noise_height":{"value":0.5,"range":[0,2]},"noise_scale":{"value":10,"range":[0,100]}}
     });
+        //magnet effect using sheryjs
+Shery.makeMagnet("#nav #part2 h5,#nav #part1 svg");
 }
+//video cursor animation
 function videoCursor(){
     var video_container = document.querySelector("#video-container")
     var video = document.querySelector("video")
@@ -205,12 +208,90 @@ function videoCursor(){
         })
     })
 }
+//flag animation
+function flagAnimation(){
+    document.addEventListener("mousemove",(dets)=>{
+        gsap.to("#flag",{
+            x:dets.x,
+            y:dets.y
+        })
+    })
+    
+    var flag = document.querySelector("#flag");
+    var h1 = document.querySelector("#hero3")
+
+
+        h1.addEventListener("mouseenter",()=>{
+            gsap.to("#flag",{
+                opacity:1
+            })
+        })
+
+
+    h1.addEventListener("mouseleave",()=>{
+        gsap.to("#flag",{
+            opacity:0
+        })
+    })
+
+}
+
+function letsCreateAnimation(){
+    var clutter = ""
+  var clutter2 = ""
+  document.querySelector("#footer h1").textContent.split("").forEach(function (elem) {
+    clutter += `<span>${elem}</span>`
+  })
+  document.querySelector("#footer h1").innerHTML = clutter
+  document.querySelector("#footer h2").textContent.split("").forEach(function (elem) {
+    clutter2 += `<span>${elem}</span>`
+  })
+  document.querySelector("#footer h2").innerHTML = clutter2
+
+
+  document.querySelector("#footer-text").addEventListener("mouseenter", function () {
+    gsap.to("#footer h1 span", {
+      opacity: 0,
+      stagger: 0.05
+    })
+    gsap.to("#footer h1",{
+        display:"none"
+    })
+    gsap.to("#footer h2",{
+        opacity:1
+    })
+    gsap.to("#footer h2 span", {
+      delay: 0.35,
+      opacity: 1,
+      stagger: 0.05
+    })
+  })
+  document.querySelector("#footer-text").addEventListener("mouseleave", function () {
+      gsap.to("#footer h2 span", {
+          opacity: 0,
+          stagger: 0.05
+        })
+    gsap.to("#footer h2",{
+        opacity:0
+    })
+    gsap.to("#footer h1",{
+        display:"initial"
+    })
+    gsap.to("#footer h1 span", {
+      opacity: 1,
+      stagger: 0.05,
+    //   delay:0.35
+    })
+  })
+}
+letsCreateAnimation();
 
 
 
 locomotive();
-// loadingAnimation();
+loadingAnimation();
 cursorAnimation();
 lineAnimation();
 sheryAnimation();
 videoCursor();
+flagAnimation()

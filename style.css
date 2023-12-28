@@ -1,15 +1,18 @@
+
+
 @font-face {
     font-family: "plain light";
-    src: url(./plain-light-webfont.ttf);
+    src: url(./fonts/plain-light-webfont.ttf);
 }
 @font-face {
     font-family: "silk serif";
-    src: url(./silkserif-regularitalic-webfont.ttf);
+    src: url(./fonts/silkserif-regularitalic-webfont.ttf);
 }
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     font-family: "plain light";
     color: #fff;
 }
@@ -35,17 +38,31 @@ html,body{
 }
 #loader .line{
     /* background-color: red; */
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     gap: 3vw;
 }
 .line #numbers{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     gap: 1vw;
 }
 .line #numbers h5,h6{
@@ -72,9 +89,46 @@ html,body{
     font-weight: 900;
     text-transform: uppercase;
     opacity: 0;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes anime {
+    0% {
+        font-family: "plain light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 1;
+    }
+
+    48% {
+        font-family: "plain light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 0;
+    }
+
+    50% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 1px #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 1;
+    }
+
+    100% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 1px #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 0;
+    }
 }
 
 @keyframes anime {
@@ -130,23 +184,41 @@ html,body{
     padding: 3vw 3vw;
 }
 #nav{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 #nav #part1{
     /* background-color: yellow; */
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 2vw;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 #nav #part2{
     gap: 3vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 #nav #part2 h5{
     font-weight: 100;
@@ -156,8 +228,12 @@ html,body{
     width: 73%;
     margin-left: 27%;
     overflow:hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .hero h1{
     /* background-color: red; */
@@ -182,6 +258,8 @@ html,body{
     color: transparent;
     -webkit-text-stroke: 1px #fff;
     font-weight: 300;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
     transition: all ease 0.5s;
     border-bottom: 0.6vw solid #ffffff00;
 }
@@ -202,6 +280,8 @@ html,body{
     /* background-color: red; */
     position: relative;
     z-index: 1;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 #flag{
@@ -209,7 +289,9 @@ html,body{
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     opacity: 0;
     z-index: 0;
 }
@@ -228,19 +310,27 @@ html,body{
 #video-container img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     position: absolute;
     top:0
 }
 #video-container video{
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 #video-cursor{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     height: 9vw;
     width: 9vw;
     z-index: 80;
@@ -290,10 +380,17 @@ html,body{
     width: 100%;
     /* background-color: red; */
     padding: 8vw 3vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 #content-box-1{
     width: 23vw;
@@ -312,9 +409,12 @@ html,body{
 .image-div img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
-    object-position: center;
-    flex-shrink: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
 }
 .content-box-2{
     width: 33vw;
@@ -333,9 +433,15 @@ html,body{
     width: 22vw;
     border-radius: 50%;
     border:1.5px solid #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
 }
 #circl{
@@ -357,17 +463,29 @@ html,body{
     position: absolute;
     left: 0;
     top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transition: scale ease 0.5s;
+    -o-transition: scale ease 0.5s;
     transition: scale ease 0.5s;
 }
 .circle-in p{
     font-size: 0.9vw;
     width: 50%;
     scale: 0;
+    -webkit-transition: scale ease 0.5s;
+    -o-transition: scale ease 0.5s;
     transition: scale ease 0.5s;
-    transition-delay: 0.4s;
+    -webkit-transition-delay: 0.4s;
+         -o-transition-delay: 0.4s;
+            transition-delay: 0.4s;
     color: #000000;
 }
 .page-3-circle:hover .circle-in{
@@ -395,6 +513,8 @@ html,body{
 .content-text h2{
     position: relative;
     top: 0%;
+    -webkit-transition: top ease 0.5s;
+    -o-transition: top ease 0.5s;
     transition: top ease 0.5s;
     font-size: 2vw;
 }
@@ -402,9 +522,15 @@ html,body{
     top: -100%;
 }
 .inner-text{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 1.8vw 0vw;
     font-size: 0.8vw;
 }
@@ -471,8 +597,12 @@ html,body{
     margin-top: 5%;
     /* background-color: red; */
     height: 80vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-bottom: 35vw;
 }
 #flex-img-text #image-container{
@@ -483,7 +613,8 @@ html,body{
 #image-container img{
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 #text-container{
     padding: 0vw 2vw;
@@ -512,10 +643,16 @@ html,body{
     height: 20%;
     /* background-color: red; */
     border-bottom: 2px solid white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 1vw 0;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .award-text h5{
     width: 40%;
@@ -535,18 +672,23 @@ html,body{
     
 }
 #page5 .elem{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
     gap: 20px;
     /* background-color: red; */
 }
 #page5 .elem h1{
-    flex-shrink: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
     font-size: 7.5vw;
     color: transparent;
     -webkit-text-stroke:1px #fff;
     font-weight: 300;
-    animation: textAnime 20s linear  infinite  ;
+    -webkit-animation: textAnime 20s linear  infinite  ;
+            animation: textAnime 20s linear  infinite  ;
 }
 .elem span{
     font-style: italic;
@@ -558,13 +700,27 @@ html,body{
     animation: textAnime 20s linear  infinite reverse ;
 }
 
-@keyframes textAnime {
+@-webkit-keyframes textAnime {
     from{
-        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
 
     }
     to{
-        transform: translateX(calc(-100% - 20px));
+        -webkit-transform: translateX(calc(-100% - 20px));
+                transform: translateX(calc(-100% - 20px));
+    }
+}
+
+@keyframes textAnime {
+    from{
+        -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+
+    }
+    to{
+        -webkit-transform: translateX(calc(-100% - 20px));
+                transform: translateX(calc(-100% - 20px));
     }
 }
 #footer{
@@ -619,9 +775,15 @@ html,body{
     background-color: #fff;
 }
 #social-content{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 100%;
     height: 70%;
     /* background-color: red; */
@@ -658,6 +820,8 @@ html,body{
     /* background-color: orange; */
     position: relative;
     top: 0%;
+    -webkit-transition: top ease 0.5s;
+    -o-transition: top ease 0.5s;
     transition: top ease 0.5s;
 }
 .animatebox:hover a{
@@ -666,8 +830,12 @@ html,body{
 .animatebox h3{
     /* background-color: orange; */
     position: relative;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     top: 20%;
+    -webkit-transition: top ease 0.5s;
+    -o-transition: top ease 0.5s;
     transition: top ease 0.5s;
 }
 .animatebox:hover h3{
@@ -722,10 +890,13 @@ html,body{
         width: 100%;
         background-color: #151515;
         position: relative;
+        padding-top: 0.1px;
     }
     #page1 #nav{
         height: 10vh;
         padding: 3vw 3vw;
+        position: fixed;
+        width: 100%;
     }
     #nav #part1{
         width: 100%;
@@ -740,6 +911,8 @@ html,body{
     #hero3{
         position: relative;
         z-index: 1;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
     }
     #flag{
@@ -747,19 +920,23 @@ html,body{
     }
     #page2{
         height: 40vh;
+        width: 100vw;
     }
     #page2 #video-container{
         height: 100%;
-        width: 100%;
+        width: 100vw;
         margin-left: 0%;
         position: relative;
     }
     #video-cursor{
         height: 20vw;
         width: 20vw;
-        /* transform:translate(-50%,-50%); */
+        position: absolute;
         top: 50%;
         left: 50%;
+        -webkit-transform:translate(-50%,-50%);
+            -ms-transform:translate(-50%,-50%);
+                transform:translate(-50%,-50%);
     }
     #page3{
         padding-top: 10%;
@@ -781,7 +958,10 @@ html,body{
         width: 90%;
     }
     #page3 #content-1{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         gap: 5vw;
     }
     #content-box-1{
@@ -814,6 +994,8 @@ html,body{
     .content-text h2{
         position: relative;
         top: 0%;
+        -webkit-transition: top ease 0.5s;
+        -o-transition: top ease 0.5s;
         transition: top ease 0.5s;
         font-size: 5vw;
     }
@@ -821,9 +1003,15 @@ html,body{
         top: -100%;
     }
     .inner-text{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         padding: 1.8vw 0vw;
         font-size: 2.8vw;
     }
@@ -865,9 +1053,16 @@ html,body{
         margin-top: 5%;
         /* background-color: red; */
         height: 80vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
-        flex-direction: column-reverse;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
+                flex-direction: column-reverse;
         margin-bottom: 5vw;
     }
     #flex-img-text #image-container{
@@ -878,7 +1073,8 @@ html,body{
     #image-container img{
         height: 100%;
         width: 100%;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
     }
     #text-container{
         /* background-color: red; */
@@ -909,10 +1105,16 @@ html,body{
         height: 20%;
         /* background-color: red; */
         border-bottom: 2px solid white;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         padding: 1vw 0;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
     .award-text h5{
         width: 40%;
@@ -924,6 +1126,8 @@ html,body{
         padding: 0.8vw 0;
     }
     #page5{
+        min-height: -webkit-fit-content;
+        min-height: -moz-fit-content;
         min-height: fit-content;
         width: 100%;
         background-color: #151515;
@@ -950,6 +1154,8 @@ html,body{
         font-weight: 900;
         text-transform: uppercase;
         /* background-color: red; */
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
         height: fit-content;
         padding: 2vw 0;
         padding-bottom: 4vw;
@@ -979,16 +1185,28 @@ html,body{
         background-color: #fff;
     }
     #social-content{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         width: 100%;
         height: 70%;
         /* background-color: red; */
     }
     #social-content .text-box{
+        height:-webkit-fit-content;
+        height:-moz-fit-content;
         height:fit-content;
         width: calc(100%);
         /* background-color: orange; */
@@ -1026,6 +1244,8 @@ html,body{
         display: block;
         top: 0%;
         font-size: 4vw;
+        -webkit-transition: top ease 0.5s;
+        -o-transition: top ease 0.5s;
         transition: top ease 0.5s;
     }
     .animatebox:hover a{
@@ -1034,8 +1254,12 @@ html,body{
     .animatebox h3{
         /* background-color: orange; */
         position: relative;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
         top: 18%;
+        -webkit-transition: top ease 0.5s;
+        -o-transition: top ease 0.5s;
         transition: top ease 0.5s;
     }
     .animatebox:hover h3{
@@ -1075,33 +1299,6 @@ html,body{
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
